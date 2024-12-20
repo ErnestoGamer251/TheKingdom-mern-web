@@ -1,5 +1,5 @@
 import ProductImageUpload from "@/components/admin-view/image-upload";
-import AdminProductTile from "@/components/admin-view/product-tile";
+import AdminProducttitle from "@/components/admin-view/product-title.jsx";
 import CommonForm from "@/components/common/form";
 import { Button } from "@/components/ui/button";
 import {
@@ -112,7 +112,7 @@ function AdminProducts() {
       <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
         {productList && productList.length > 0
           ? productList.map((productItem) => (
-              <AdminProductTile
+              <AdminProductTitle
                 setFormData={setFormData}
                 setOpenCreateProductsDialog={setOpenCreateProductsDialog}
                 setCurrentEditedId={setCurrentEditedId}

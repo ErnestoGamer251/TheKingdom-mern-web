@@ -1,7 +1,7 @@
 import { Button } from "../ui/button";
 import { Card, CardContent, CardFooter } from "../ui/card";
 
-function AdminProductTile({
+function AdminProducttitle({
   product,
   setFormData,
   setOpenCreateProductsDialog,
@@ -50,4 +50,4 @@ function AdminProductTile({
   );
 }
 
-export default AdminProductTile;
+export default AdminProducttitle;

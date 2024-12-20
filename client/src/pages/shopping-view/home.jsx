@@ -24,7 +24,7 @@ import {
   fetchAllFilteredProducts,
   fetchProductDetails,
 } from "@/store/shop/products-slice";
-import ShoppingProductTile from "@/components/shopping-view/product-tile";
+import ShoppingProducttitle from "@/components/shopping-view/product-title";
 import { useNavigate } from "react-router-dom";
 import { addToCart, fetchCartItems } from "@/store/shop/cart-slice";
 import { useToast } from "@/components/ui/use-toast";
@@ -36,17 +36,16 @@ const categoriesWithIcon = [
   { id: "women", label: "Women", icon: CloudLightning },
   { id: "kids", label: "Kids", icon: BabyIcon },
   { id: "accessories", label: "Accessories", icon: WatchIcon },
-  { id: "footwear", label: "Footwear", icon: UmbrellaIcon },
 ];
 
-const brandsWithIcon = [
+/* const brandsWithIcon = [
   { id: "nike", label: "Nike", icon: Shirt },
   { id: "adidas", label: "Adidas", icon: WashingMachine },
   { id: "puma", label: "Puma", icon: ShoppingBasket },
   { id: "levi", label: "Levi's", icon: Airplay },
   { id: "zara", label: "Zara", icon: Images },
   { id: "h&m", label: "H&M", icon: Heater },
-];
+]; */
 function ShoppingHome() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { productList, productDetails } = useSelector(
@@ -188,7 +187,7 @@ function ShoppingHome() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">Shop by Brand</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {brandsWithIcon.map((brandItem) => (
+           {/*  {brandsWithIcon.map((brandItem) => (
               <Card
                 onClick={() => handleNavigateToListingPage(brandItem, "brand")}
                 className="cursor-pointer hover:shadow-lg transition-shadow"
@@ -198,7 +197,7 @@ function ShoppingHome() {
                   <span className="font-bold">{brandItem.label}</span>
                 </CardContent>
               </Card>
-            ))}
+            ))} */}
           </div>
         </div>
       </section>
@@ -211,7 +210,7 @@ function ShoppingHome() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {productList && productList.length > 0
               ? productList.map((productItem) => (
-                  <ShoppingProductTile
+                  <ShoppingProducttitle
                     handleGetProductDetails={handleGetProductDetails}
                     product={productItem}
                     handleAddtoCart={handleAddtoCart}
