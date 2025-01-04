@@ -46,23 +46,33 @@ function ProductImageUpload({
   }
 
   async function uploadImageToCloudinary() {
+    if (!imageFile) return; // 1. Verifica que haya archivo
+    
     setImageLoadingState(true);
+    
     const data = new FormData();
-    data.append("my_file", imageFile);
-    const response = await axios.post(
-      "http://localhost:5000/api/admin/products/upload-image",
-      data
-    );
-    console.log(response, "response");
-
-    if (response?.data?.success) {
-      setUploadedImageUrl(response.data.result.url);
-      setImageLoadingState(false);
+    data.append("file", imageFile); // 2. Usa el nombre correcto
+  
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/admin/products/upload-image",
+        data,
+        { headers: { "Content-Type": "multipart/form-data" } } // 4. Headers opcionales
+      );
+  
+      if (response?.data?.success) {
+        setUploadedImageUrl(response.data.result.url);
+      }
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    } finally {
+      setImageLoadingState(false); // 3. Asegura que se desactive el estado de carga
     }
   }
+  
 
   useEffect(() => {
-    if (imageFile !== null) uploadImageToCloudinary();
+   if (imageFile !== null) uploadImageToCloudinary();
   }, [imageFile]);
 
   return (

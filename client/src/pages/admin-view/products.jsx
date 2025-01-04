@@ -105,9 +105,15 @@ function AdminProducts() {
   return (
     <Fragment>
       <div className="mb-5 w-full flex justify-end">
-        <Button onClick={() => setOpenCreateProductsDialog(true)}>
-          Add New Product
-        </Button>
+      <Button
+  onClick={() => {
+    console.log("Button clicked!");
+    setOpenCreateProductsDialog(true);
+  }}
+>
+  Add New Product
+</Button>
+
       </div>
       <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
         {productList && productList.length > 0
@@ -128,6 +134,10 @@ function AdminProducts() {
           setOpenCreateProductsDialog(false);
           setCurrentEditedId(null);
           setFormData(initialFormData);
+          useEffect(() => {
+            setOpenCreateProductsDialog(true);
+          }, []);
+          
         }}
       >
         <SheetContent side="right" className="overflow-auto">
