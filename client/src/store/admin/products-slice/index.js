@@ -3,23 +3,27 @@ import axios from "axios";
 
 const initialState = {
   isLoading: false,
+  error: null,
   productList: [],
 };
 
 export const addNewProduct = createAsyncThunk(
   "/products/addnewproduct",
   async (formData) => {
-    const result = await axios.post(
-      "http://localhost:5000/api/admin/products/add",
-      formData,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-
-    return result?.data;
+    try {
+      const result = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/admin/products/add`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      return result?.data;
+    } catch (error) {
+      throw new Error(error.response?.data?.message || 'Error al agregar producto');
+    }
   }
 );
 
@@ -27,8 +31,12 @@ export const fetchAllProducts = createAsyncThunk(
   "/products/fetchAllProducts",
   async () => {
     const result = await axios.get(
-      "http://localhost:5000/api/admin/products/get"
+      `${process.env.NEXT_PUBLIC_API_URL}/api/admin/products/get`
     );
+
+    if (!result?.data?.success) {
+      throw new Error('Error al obtener productos');
+    }
 
     return result?.data;
   }
@@ -78,6 +86,18 @@ const AdminProductsSlice = createSlice({
       .addCase(fetchAllProducts.rejected, (state, action) => {
         state.isLoading = false;
         state.productList = [];
+      })
+      .addCase(addNewProduct.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(addNewProduct.fulfilled, (state) => {
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(addNewProduct.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
       });
   },
 });
