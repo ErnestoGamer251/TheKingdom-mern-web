@@ -47,6 +47,8 @@ function AdminProducts() {
   async function onSubmit(event) {
     event.preventDefault();
 
+    console.log("uploadedImageUrl:", uploadedImageUrl); // Verificar que la URL de la imagen esté presente
+
     if (currentEditedId !== null) {
       dispatch(
         editProduct({
@@ -71,7 +73,7 @@ function AdminProducts() {
             image: uploadedImageUrl,
           })
         );
-        
+
         if (result?.payload?.success) {
           dispatch(fetchAllProducts());
           setOpenCreateProductsDialog(false);

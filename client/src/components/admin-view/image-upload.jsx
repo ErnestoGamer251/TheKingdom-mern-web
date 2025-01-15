@@ -10,9 +10,9 @@ function ProductImageUpload({
   imageFile,
   setImageFile,
   imageLoadingState,
+  setImageLoadingState,
   uploadedImageUrl,
   setUploadedImageUrl,
-  setImageLoadingState,
   isEditMode,
   isCustomStyling = false,
 }) {
