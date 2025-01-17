@@ -64,7 +64,7 @@ export const registerFormControls = [
         { id: "accessories", label: "Accessories" },
       ],
     },
-    /* {
+     {
       label: "Brand",
       name: "brand",
       componentType: "select",
@@ -76,7 +76,7 @@ export const registerFormControls = [
         { id: "zara", label: "Zara" },
         { id: "h&m", label: "H&M" },
       ],
-    }, */
+    },
     {
       label: "Price",
       name: "price",
