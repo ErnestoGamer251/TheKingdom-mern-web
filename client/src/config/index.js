@@ -65,8 +65,8 @@ export const registerFormControls = [
       ],
     },
      {
-      label: "Brand",
-      name: "brand",
+      label: "wear",
+      name: "wear",
       componentType: "select",
       options: [
         { id: "nike", label: "Nike" },
@@ -145,14 +145,14 @@ export const registerFormControls = [
     accessories: "Accessories",
   };
   
- /*  export const brandOptionsMap = {
+  export const wearOptionsMap = {
     nike: "Nike",
     adidas: "Adidas",
     puma: "Puma",
     levi: "Levi",
     zara: "Zara",
     "h&m": "H&M",
-  }; */
+  };
   
   export const filterOptions = {
     category: [
@@ -161,14 +161,14 @@ export const registerFormControls = [
       { id: "kids", label: "Kids" },
       { id: "accessories", label: "Accessories" },
     ],
-    /* brand: [
+   wear: [
       { id: "nike", label: "Nike" },
       { id: "adidas", label: "Adidas" },
       { id: "puma", label: "Puma" },
       { id: "levi", label: "Levi's" },
       { id: "zara", label: "Zara" },
       { id: "h&m", label: "H&M" },
-    ], */
+    ],
   };
   
   export const sortOptions = [
