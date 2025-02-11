@@ -1,1 +1,14 @@
-lo del pisarron  a
+- Corregir errores ortográficos en el texto existente.
+- Crear una estructura básica del proyecto.
+- Configurar un entorno de desarrollo con Node.js y MongoDB.
+- Implementar un servidor backend utilizando Express.js.
+- Crear un modelo de datos para las tareas (to-do items) utilizando Mongoose.
+- Implementar rutas CRUD (Create, Read, Update, Delete) para las tareas.
+- Configurar un frontend utilizando React.
+- Crear componentes de React para mostrar, agregar, editar y eliminar tareas.
+- Implementar la comunicación entre el frontend y el backend utilizando Axios o Fetch API.
+- Añadir validaciones y manejo de errores en el backend.
+- Añadir estilos CSS para mejorar la apariencia del frontend.
+- Implementar autenticación de usuarios (opcional).
+- Añadir tests unitarios y de integración para asegurar la calidad del código.
+- Configurar un sistema de despliegue para el proyecto (por ejemplo, Heroku o Vercel).
